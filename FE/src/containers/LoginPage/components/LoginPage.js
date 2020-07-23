@@ -49,7 +49,7 @@ LoginPage.propTypes = {
     dispatchUsernameChange: PropTypes.func,
     dispatchPasswordChange: PropTypes.func,
     dispatchAuthenticate: PropTypes.func,
-    classes: PropTypes.object.isRequired,
+    classes: PropTypes.object,
 };
 
 export default memo(LoginPage);

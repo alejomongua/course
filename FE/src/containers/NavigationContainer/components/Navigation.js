@@ -27,7 +27,7 @@ const icons = {
     'vacations': <VacationsIcon />,
 };
 
-function Navigation({ routes }) {
+function Navigation({ routes, user, logout }) {
     const classes = useStyles();
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
@@ -39,6 +39,7 @@ function Navigation({ routes }) {
             <NavItem onClick={() => setSelectedKey(route.key)}
                      selectedKey={selectedKey}
                      icon={icons[route.key]}
+                     key={route.key}
                      item={route} />)
         );
         setItems(drawerItems)
@@ -97,7 +98,7 @@ function Navigation({ routes }) {
                 <Divider />
                 <List>
                     {['Sign Out'].map((text, index) => (
-                        <ListItem button key={text}>
+                        <ListItem button key={text} onClick={logout}>
                             <ListItemIcon>{<ExitIcon />}</ListItemIcon>
                             <ListItemText primary={text} />
                         </ListItem>
