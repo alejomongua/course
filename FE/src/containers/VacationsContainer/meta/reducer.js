@@ -2,7 +2,10 @@ import produce from 'immer';
 import * as constants from "./constants";
 
 export const initialState = {
-    vacations: [],
+    vacations: {
+        vacations: [],
+        discounts: []
+    }
 };
 
 /* eslint-disable no-param-reassign */

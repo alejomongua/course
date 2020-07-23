@@ -9,6 +9,7 @@ const useStyles = makeStyles({
         gridColumnGap: '10px',
         gridRowGap: '15px',
         gridTemplateColumns: '2fr 2fr 2fr',
+        marginTop: '70px'
     },
 });
 
@@ -20,11 +21,11 @@ function Vacations({ getVacations, vacations }) {
         if (getVacations) {
             getVacations()
         }
-    }, []);
+    }, [getVacations]);
 
     useEffect(() => {
-        const vacationsElements = vacations.map(vacation => (
-            <Vacation vacation={vacation} />)
+        const vacationsElements = vacations && vacations.vacations.map(vacation => (
+            <Vacation key={vacation.id} vacation={vacation} />)
         );
         setItems(vacationsElements)
     }, [vacations]);
@@ -38,7 +39,7 @@ function Vacations({ getVacations, vacations }) {
 
 Vacations.propTypes = {
     getVacations: PropTypes.func,
-    vacations: PropTypes.array,
+    vacations: PropTypes.object,
 };
 
 export default Vacations;

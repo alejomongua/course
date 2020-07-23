@@ -16,10 +16,8 @@ import makeSelectLoginPage from '../../LoginPage/meta/selectors';
 function* authenticateUser() {
   try {
     const loginPage = yield select(makeSelectLoginPage());
-    debugger;
     yield authenticateServer(loginPage.username, loginPage.password);
   } catch (error) {
-    debugger;
     console.warn(JSON.stringify(error));
   }
 }

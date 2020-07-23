@@ -12,13 +12,15 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import LoginPage from "../LoginPage";
 import NavigationContainer from "containers/NavigationContainer";
-import { getAuth } from 'containers/AuthContainer/meta/selectors'
+import { getAuth } from '../../containers/AuthContainer/meta/selectors'
 import PropTypes from 'prop-types'
+import { ThemeProvider } from '@material-ui/core'
+import { selectTheme } from './meta/selectors'
 
-function App({ auth }) {
-  return (<>
+function App({ auth, theme }) {
+  return (<ThemeProvider theme={theme}>
       {auth.isAuthenticated ? <NavigationContainer /> : <LoginPage />}
-    </>);
+    </ThemeProvider>);
 }
 
 App.propTypes = {
@@ -26,7 +28,8 @@ App.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  auth: getAuth(state)
+  auth: getAuth(state),
+  theme: selectTheme(state)
 })
 
 const withConnect = connect(mapStateToProps);

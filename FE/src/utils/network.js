@@ -1,16 +1,21 @@
 import axios from 'axios';
 import { BASE_URL } from './environment'
+import {getDataFromStorage} from "./cookies";
+
 
 axios.interceptors.response.use(
     response => response.data
 );
 
-function network (token) {
+function network () {
     const baseUrl = BASE_URL
-    let headers = {}
+    const { token } = getDataFromStorage();
+    const headers = {
+        Authorization: `Bearer ${token}`
+    };
 
-    function setCredentials (token) {
-        headers.Authorization = `Bearer ${token}`
+    function setCredentials (_token) {
+        headers.Authorization = `Bearer ${_token}`
     } 
 
     function* postData (action, body) {

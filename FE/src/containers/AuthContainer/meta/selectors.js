@@ -5,6 +5,6 @@ import { initialState } from './reducer';
  * @returns {Object}
  */
 
-export const getAuth = state => state.Auth || initialState;
+export const getAuth = state => state.auth || initialState;
 
 export const getUser = state => getAuth(state).user

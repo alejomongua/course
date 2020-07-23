@@ -1,6 +1,6 @@
 import produce from 'immer';
 import * as constants from "./constants";
-import { getDataFromStorage } from 'utils/cookies'
+import { getDataFromStorage } from '../../../utils/cookies'
 
 const { token, user } = getDataFromStorage()
 
@@ -21,12 +21,10 @@ const Auth = (state = initialState, action) =>
                 draft.user = action.payload.user
                 draft.isAuthenticated = true
                 break;
-            case constants.GET_AUTH_ERROR:
+            case constants.LOGOUT:
                 delete draft.token
                 delete draft.user
                 draft.isAuthenticated = false
-                break;
-            case constants.LOGOUT:
                 break;
             default:
                 break;
