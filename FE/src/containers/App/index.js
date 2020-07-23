@@ -11,16 +11,22 @@ import React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import LoginPage from "../LoginPage";
-import DynamicForm from "../../hooks/DynamicForm";
-import HomePage from "../../hooks/HomePage";
+import NavigationContainer from "containers/NavigationContainer";
+import { getAuth } from 'containers/AuthContainer/meta/selectors'
 
-function App() {
-  return (<HomePage />);
+function App({ auth }) {
+  return (<>
+      {auth.isAuthenticated ? <NavigationContainer /> : <LoginPage />}
+    </>);
 }
 
 App.propTypes = {};
 
-const withConnect = connect();
+const mapStateToProps = (auth) => ({
+  auth: getAuth(auth)
+})
+
+const withConnect = connect(mapStateToProps);
 
 export default compose(
   withConnect,

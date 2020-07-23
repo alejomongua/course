@@ -13,10 +13,9 @@ const domain = window.location.hostname;
 const path = '';
 
 // save auth data to storage
-export const saveDataToStorage = ({ token, tokenExpiryTime, user }) => {
+export const saveDataToStorage = ({ token, user }) => {
   Cookies.set('token', token, { domain, path });
   Cookies.set('user', JSON.stringify(user), { domain, path });
-  Cookies.set('tokenExpiryTime', tokenExpiryTime, { domain, path });
 };
 
 // clear auth data from storage

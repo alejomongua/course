@@ -20,7 +20,7 @@ class LoginForm extends React.PureComponent {
       submit,
       formControlClass,
       inputClass,
-      forgotPasswordClass,
+      //forgotPasswordClass,
     } = this.props;
 
     return (

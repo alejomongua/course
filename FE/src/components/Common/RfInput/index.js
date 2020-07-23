@@ -90,7 +90,7 @@ class RfInput extends React.Component {
       <FormControl style={{ width: '100%' }}>
         <TextField
           margin="none"
-          value={this.state.value}
+          value={this.state.value || ''}
           disabled={disabled}
           onBlur={this.onBlur}
           multiline={multiline}
@@ -123,7 +123,7 @@ RfInput.propTypes = {
   id: PropTypes.string.isRequired,
   width: PropTypes.string,
   withSubmit: PropTypes.bool,
-  formControlClass: PropTypes.object,
+  formControlClass: PropTypes.string,
   value: PropTypes.string,
   onChange: PropTypes.func,
   onChangeAndSubmit: PropTypes.func,
