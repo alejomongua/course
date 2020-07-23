@@ -26,6 +26,9 @@ export const styles = makeStyles(theme => ({
     hide: {
         display: 'none',
     },
+    title: {
+        flexGrow: 1,
+    },
     drawer: {
         width: drawerWidth,
         flexShrink: 0,
