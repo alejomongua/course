@@ -13,6 +13,7 @@ import { connect } from 'react-redux';
 import LoginPage from "../LoginPage";
 import NavigationContainer from "containers/NavigationContainer";
 import { getAuth } from 'containers/AuthContainer/meta/selectors'
+import PropTypes from 'prop-types'
 
 function App({ auth }) {
   return (<>
@@ -20,10 +21,12 @@ function App({ auth }) {
     </>);
 }
 
-App.propTypes = {};
+App.propTypes = {
+  auth: PropTypes.object
+};
 
-const mapStateToProps = (auth) => ({
-  auth: getAuth(auth)
+const mapStateToProps = (state) => ({
+  auth: getAuth(state)
 })
 
 const withConnect = connect(mapStateToProps);

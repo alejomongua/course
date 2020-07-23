@@ -72,9 +72,10 @@ function Navigation({ routes, user, logout }) {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6" noWrap>
+                    <Typography variant="h6" noWrap className={classes.title}>
                         Vacations
                     </Typography>
+                    <Typography variant="h6" noWrap>{user.username}</Typography>
                 </Toolbar>
             </AppBar>
             <Drawer
